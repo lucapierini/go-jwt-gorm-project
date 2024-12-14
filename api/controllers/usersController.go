@@ -7,7 +7,6 @@ import (
 	initializaers "github.com/lucapierini/api/initializers"
 	"github.com/lucapierini/api/models"
 	"golang.org/x/crypto/bcrypt"
-	// "github.com/dgrijalva/jwt-go"
 	"github.com/golang-jwt/jwt/v4"
 	"time"
 	"os"
@@ -96,7 +95,6 @@ func Login(c *gin.Context){
 
 func Validate(c *gin.Context){
 	user, _ := c.Get("user")
-
 
 	c.JSON(http.StatusOK, gin.H{"message": user})
 }

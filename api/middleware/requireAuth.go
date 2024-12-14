@@ -1,7 +1,6 @@
 package middleware
 
 import (
-	// "crypto/hmac"
 	"fmt"
 	"net/http"
 	"os"
@@ -13,7 +12,8 @@ import (
 	"github.com/lucapierini/api/models"
 )
 
-func RequireAuth(c *gin.Context){
+func 
+RequireAuth(c *gin.Context){
 	// fmt.Println("In middleware")
 	// Obtener la cookie de la request
 	tokenString, err := c.Cookie("Authorization")
