@@ -1,0 +1,28 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - SECRET=secret_key
+      - DB=postgres://userTest:123456@postgres:5432/gorm-jwt-auth?sslmode=disable
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: userTest
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: gorm-jwt-auth
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
